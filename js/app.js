@@ -170,21 +170,80 @@
 //     console.log(e.value, ' => ', e.checked);
 //   });
 // }
-const formEl = document.querySelector('form');
-formEl.addEventListener('submit', handleSubmit);
+// const formEl = document.querySelector('form');
+// formEl.addEventListener('submit', handleSubmit);
 
-function handleSubmit(e) {
-  e.preventDefault();
+// function handleSubmit(e) {
+//   e.preventDefault();
 
-  const confirm = e.target.elements['confirm'];
-  // wyszukuje element o nazwie [confirm]
-  if (!confirm.checked) {
-    // jesli [checkbox] nie jest zaznaczony
-    const numberAgreement = confirm.value;
-    // pobieram wartosc dla [input]
-    alert('Confirm agreement no: ' + numberAgreement);
-    // wyswietlam alert
-  } else {
-    alert('Thank you! Data was send.');
-  }
+//   const confirm = e.target.elements['confirm'];
+//   // wyszukuje element o nazwie [confirm]
+//   if (!confirm.checked) {
+//     // jesli [checkbox] nie jest zaznaczony
+//     const numberAgreement = confirm.value;
+//     // pobieram wartosc dla [input]
+//     alert('Confirm agreement no: ' + numberAgreement);
+//     // wyswietlam alert
+//   } else {
+//     alert('Thank you! Data was send.');
+//   }
+// }
+
+// const defaultRangeValue = 50;
+// const spanEl = document.querySelector('span');
+// const rangeEl = document.querySelector('input');
+// rangeEl.addEventListener('mouseover', showValue);
+// rangeEl.addEventListener('change', showValue);
+// spanEl.innerText = defaultRangeValue;
+// rangeEl.value = defaultRangeValue;
+
+// function showValue(e) {
+//   const isMouseMoveEvent = e.type === 'mouseover';
+//   const isMouseLeftButtonPress = e.buttons === 1;
+//   if ((isMouseMoveEvent && isMouseLeftButtonPress) || !isMouseMoveEvent) {
+//     spanEl.innerText = e.target.value;
+//   }
+// }
+
+// const colorEl = document.querySelector('input');
+// colorEl.addEventListener('change', changeBgColor);
+
+// function changeBgColor(e) {
+//   const body = document.body;
+//   const color = e.target.value;
+//   body.style.backgroundColor = color;
+//   body.style.color = invertColor(color);
+// }
+// function invertColor(hex) {
+//   let color = '#';
+//   for (let i = 1; i <= 6; i = i + 2) {
+//     const dec = 255 - parseInt(hex.substr(i, 2), 16);
+//     color += (dec < 16 ? '0' : '') + dec.toString(16);
+//   }
+//   return color;
+// }
+
+// const selectEl = document.querySelector('select');
+// selectEl.addEventListener('change', showUser);
+
+// function showUser(e) {
+//   console.log(e.target.value, e.target.selectedIndex, selectEl.selectedOptions);
+// }
+
+const selectEl = document.querySelector('select');
+selectEl.addEventListener('change', showOptionsInfo);
+
+function showOptionsInfo(e) {
+  const valueList = [];
+  const optionList = Array.from(e.target.options);
+  // tworze tablice z przekazanych danych
+  // dzieki temu bede mogl wykorzystac [forEach]
+  optionList.forEach(function (option) {
+    if (option.selected) {
+      // jestli element jest wybrany
+      valueList.push(option.value);
+      // to dodaj go do listy
+    }
+  });
+  console.log(valueList);
 }
