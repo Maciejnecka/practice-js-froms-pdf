@@ -230,20 +230,128 @@
 //   console.log(e.target.value, e.target.selectedIndex, selectEl.selectedOptions);
 // }
 
-const selectEl = document.querySelector('select');
-selectEl.addEventListener('change', showOptionsInfo);
+// const selectEl = document.querySelector('select');
+// selectEl.addEventListener('change', showOptionsInfo);
 
-function showOptionsInfo(e) {
-  const valueList = [];
-  const optionList = Array.from(e.target.options);
-  // tworze tablice z przekazanych danych
-  // dzieki temu bede mogl wykorzystac [forEach]
-  optionList.forEach(function (option) {
-    if (option.selected) {
-      // jestli element jest wybrany
-      valueList.push(option.value);
-      // to dodaj go do listy
-    }
-  });
-  console.log(valueList);
-}
+// function showOptionsInfo(e) {
+//   const valueList = [];
+//   const optionList = Array.from(e.target.options);
+//   // tworze tablice z przekazanych danych
+//   // dzieki temu bede mogl wykorzystac [forEach]
+//   optionList.forEach(function (option) {
+//     if (option.selected) {
+//       // jestli element jest wybrany
+//       valueList.push(option.value);
+//       // to dodaj go do listy
+//     }
+//   });
+//   console.log(valueList);
+// }
+
+// const textEl = document.querySelector('textarea');
+// textEl.addEventListener('change', showText);
+// textEl.addEventListener('input', prepareHeight);
+// function showText(e) {
+//   console.log(e.target.value);
+//   // pobieram zawartosc, gdy sie ona zmieni. Tzn. w momencie opuszczenia pola
+// }
+
+// function prepareHeight(e) {
+//   const item = e.target;
+//   if (item.scrollHeight > item.offsetHeight) {
+//     //wysokosc zawartosci textarea jest wieksza od wysokosci elementu
+//     item.style.height = item.scrollHeight + 'px';
+//     // zwiekszam wysokosc elementu
+//   }
+// }
+
+// const spanEl = document.querySelector('span');
+// const inputEl = document.querySelector('input');
+
+// inputEl.addEventListener('input', checkEmail);
+
+// function checkEmail(e) {
+//   const self = e.target;
+//   const email = self.value;
+//   if (!email.includes('@')) {
+//     // jesli adres email nie posiada znaku @ to...
+//     self.style.border = '1px solid red';
+//     spanEl.innerText = 'Where is @?';
+//   } else {
+//     self.style.border = '1px solid green';
+//     spanEl.innerText = '';
+//   }
+// }
+
+// const ulEl = document.querySelector('ul');
+// const formEl = document.querySelector('form');
+// formEl.addEventListener('submit', checkData);
+
+// function checkData(e) {
+//   const name = e.target.elements.name.value;
+//   const email = e.target.elements.email.value;
+//   const errors = [];
+//   if (name.length === 0) {
+//     errors.push('Field name is required!');
+//   }
+//   if (!email.includes('@')) {
+//     errors.push('Email need @ sign!');
+//   }
+//   // cdn.
+//   if (errors.length > 0) {
+//     e.preventDefault();
+//     // zatrzymaj wysylanie, gdy dane sa niepoprawne
+//     ulEl.innerHTML = '';
+//     // usun z [ul] poprzednie bledy
+//     errors.forEach(function (err) {
+//       const newLi = document.createElement('li');
+//       newLi.innerText = err;
+//       ulEl.appendChild(newLi);
+//       // dodaj informacje o nowych bledach
+//     });
+//   }
+//   // jesli dane sa poprawne, to je wyslij
+// }
+// const textEl = document.querySelector('textarea');
+// const btnEl = document.querySelector('input');
+// const ulEl = document.querySelector('ul');
+
+// btnEl.addEventListener('click', addComment);
+
+// function addComment(e) {
+//   const text = textEl.value;
+//   const newLi = document.createElement('li');
+//   newLi.innerText = text;
+
+//   ulEl.appendChild(newLi);
+// }
+
+// const inpList = document.querySelectorAll('input');
+// const spanEl = document.querySelector('span');
+
+// inpList.forEach(function (input) {
+//   input.addEventListener('input', calculate);
+// });
+
+// function calculate(e) {
+//   let sum = 0;
+//   inpList.forEach(function (inp) {
+//     sum += Number(inp.value);
+//   });
+//   spanEl.innerText = sum;
+// }
+// const inputEl = document.querySelector('input');
+
+// inputEl.style.outline = 'none';
+// // uwuam outline w celu lepszej prezentacji, docelowo outline wspiera UX, wiec warto go zostawic
+// inputEl.addEventListener('input', checkAge);
+
+// function checkAge(e) {
+//   const age = e.target.value;
+
+//   if (isNaN(age)) {
+//     e.target.style.border = '1px solid red';
+//   } else {
+//     e.target.style.border = '1px solid green';
+//   }
+// }
