@@ -28,8 +28,6 @@
 //   console.log(key, '=>', value);
 // }
 
-const formEl = document.querySelector('form');
-
 // formEl.noValidate = true;
 // formEl.autocomplete = 'off';
 
@@ -48,3 +46,145 @@ const formEl = document.querySelector('form');
 //   //wyszukuje odpowiedni element
 //   console.log(company.value);
 // });
+
+// const formEl = document.querySelector('form');
+
+// const handleChange = function (e) {
+//   console.log(e.target.name, e.target.value);
+// };
+
+// for (const el of formEl.elements) {
+//   el.addEventListener('change', handleChange);
+//   // dla kazdego elementu formularza nasluchuj zdarzenia [change] czyli po zmianei wartosci pola uruchom callback [handleChange]
+// }
+
+// const inputEl = document.querySelector('input');
+// inputEl.addEventListener('keyup', insertNumbers);
+
+// function insertNumbers(e) {
+//   const val = e.target.value;
+//   const len = val.length;
+//   if (isNaN(val)) {
+//     // jesli ciag znakow po konwersji na Number daje wartosc Not a Number tzw. NaN
+//     e.target.value = val.slice(0, len - 1);
+//     //to ucinamy ostatni znak
+//   }
+// }
+
+// const inputEl = document.querySelector('input');
+// inputEl.addEventListener('paste', saveNumbers);
+
+// function saveNumbers(e) {
+//   e.preventDefault();
+
+//   let inputValue = '';
+//   const userData = e.clipboardData.getData('Text');
+//   // pobieram dane ze schowka
+
+//   for (const char of userData) {
+//     inputValue += isNaN(char) ? '' : char;
+//     // zapisuje tylko liczny
+//   }
+//   e.target.value = inputValue;
+//   // przypisuje tylko liczby
+// }
+
+// const btnEl = document.querySelector('button');
+// btnEl.addEventListener('click', changeInputType);
+
+// function changeInputType(e) {
+//   const defaultType = 'password';
+//   const inputEl = e.target.previousElementSibling;
+//   const currentType = inputEl.getAttribute('type');
+//   if (currentType === defaultType) {
+//     // jesli [type] jest równe [password]
+//     inputEl.removeAttribute('type');
+//     // usuwam atrybut [type], czyli ustawiam domyslna wartosc, tj, [text]
+//   } else {
+//     inputEl.setAttribute('type', defaultType);
+//   }
+// }
+
+// const timeEl = document.querySelector('input[name="time"]');
+// const formEl = document.querySelector('form');
+// formEl.addEventListener('submit', handleSubmit);
+
+// function handleSubmit(e) {
+//   e.preventDefault();
+//   timeEl.value = e.timeStamp;
+//   console.log(timeEl.value);
+//   // w momencie wyslania formularza aktualizuje [input] o nazwie [time], ktory przechowuje czas w milisekundach, jaki uplynal od uruchomienai strony do momentu wyslania formularza
+// }
+
+// const fileEl = document.querySelector('input');
+// fileEl.addEventListener('change', showInfoFile);
+
+// function showInfoFile(e) {
+//   const file = e.target.files[0];
+//   //pobieram informacje o wybranym pliku
+//   console.log(file.name, file.size, file.type);
+// }
+
+// const fileEl = document.querySelector('input');
+// fileEl.addEventListener('change', readFile);
+// function readFile(e) {
+//   const file = e.target.files[0];
+//   if (file && file.type.includes('image')) {
+//     const reader = new FileReader();
+
+//     readFile.onload = function (readerEvemt) {
+//       const newImg = document.createElement('img');
+//       newImg.src = readerEvemt.target.result;
+
+//       document.body.appendChild(newImg);
+//     };
+//     reader.readAsDataURL(file);
+//   }
+// }
+
+// const pElement = document.querySelector('p');
+// const fileEl = document.querySelector('input');
+// fileEl.addEventListener('change', readFile);
+
+// function readFile(e) {
+//   const file = e.target.files[0];
+//   if (file && file.type.includes('text')) {
+//     const reader = new FileReader();
+//     reader.onload = function (readerEvent) {
+//       const content = readerEvent.target.result;
+//       pElement.textContent = content;
+//     };
+//     reader.readAsText(file, 'UTF-8');
+//   } else {
+//     alert('Wybierz plik tekstowy!');
+//   }
+// }
+// const labelEl = document.querySelector('label');
+// const sizeList = document.querySelectorAll('[type="radio"]');
+
+// labelEl.addEventListener('click', showSizes);
+// // wykorzystuje propagacje eventu
+
+// function showSizes(e) {
+//   sizeList.forEach(function (e) {
+//     console.log(e.value, ' => ', e.checked);
+//   });
+// }
+const formEl = document.querySelector('form');
+formEl.addEventListener('submit', handleSubmit);
+
+function handleSubmit(e) {
+  e.preventDefault();
+
+  const confirm = e.target.elements['confirm'];
+  // wyszukuje element o nazwie [confirm]
+  if (!confirm.checked) {
+    // jesli [checkbox] nie jest zaznaczony
+    const numberAgreement = confirm.value;
+    // pobieram wartosc dla [input]
+    alert('Confirm agreement no: ' + numberAgreement);
+    // wyswietlam alert
+  } else {
+    alert('Thank you! Data was send.');
+  }
+}
